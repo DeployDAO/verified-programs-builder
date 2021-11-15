@@ -28,13 +28,14 @@ jobs:
         with:
           name: saber
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-      - name: Download verifiable tarball of program
+      - name: Perform verifiable build
         run: |
           curl https://github.com/saber-hq/merkle-distributor/archive/refs/tags/v0.2.2.tar.gz > release.tar.gz
           tar xzvf release.tar.gz
-
           mkdir artifacts
           nix shell .#ci --command anchor build --verifiable --solana-version 1.7.11
+      - name: Record program artifacts
+        run: |
           mv target/verifiable/ artifacts/verifiable/
           mv target/idl/ artifacts/idl/
 

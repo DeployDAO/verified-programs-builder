@@ -40,8 +40,8 @@ jobs:
           sha256sum artifacts/idl/* >> artifacts/checksums.txt
 
           echo '---' >> artifacts/README.md
-          echo 'anchorVersion: "$(nix shell .#anchor-0_18_0 --command anchor --version)"' >> artifacts/README.md
-          echo 'createdAt: "$(date)"' >> artifacts/README.md
+          echo "anchorVersion: \"$(nix shell .#anchor-0_18_0 --command anchor --version)\"" >> artifacts/README.md
+          echo "createdAt: \"$(date)\"" >> artifacts/README.md
           echo 'repo: "GokiProtocol/goki"' >> artifacts/README.md
           echo 'tag: "v0.2.1"' >> artifacts/README.md
           echo 'slug: "GokiProtocol__goki-v0.2.1"' >> artifacts/README.md

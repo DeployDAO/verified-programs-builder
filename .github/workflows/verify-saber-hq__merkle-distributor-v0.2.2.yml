@@ -31,18 +31,18 @@ jobs:
       - name: Download sources from GitHub
         run: curl -L https://github.com/saber-hq/merkle-distributor/archive/refs/tags/v0.2.2.tar.gz > release.tar.gz
       - name: Extract sources
-        run: tar xzvf release.tar.gz
+        run: echo $(tar xzvf release.tar.gz | head -1 | cut -f1 -d"/") > dirname
       - name: Perform verifiable build
-        run: nix shell .#ci --command anchor build --verifiable --solana-version 1.7.11
+        run: cd $(cat dirname) && nix shell .#ci --command anchor build --verifiable --solana-version 1.7.11
       - name: Record program artifacts
         run: |
           mkdir artifacts
-          mv target/verifiable/ artifacts/verifiable/
-          mv target/idl/ artifacts/idl/
+          mv $(cat dirname)/target/verifiable/ artifacts/verifiable/
+          mv $(cat dirname)/target/idl/ artifacts/idl/
 
           sha256sum release.tar.gz > artifacts/release-checksums.txt
-          sha256sum target/verifiable/* > artifacts/program-checksums.txt
-          sha256sum target/idl/* > artifacts/idl-checksums.txt
+          sha256sum artifacts/verifiable/* > artifacts/program-checksums.txt
+          sha256sum artifacts/idl/* > artifacts/idl-checksums.txt
 
           echo '# saber-hq/merkle-distributor v0.2.2' >> artifacts/README.md
           echo '```' >> artifacts/README.md

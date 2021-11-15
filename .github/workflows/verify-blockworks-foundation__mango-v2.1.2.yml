@@ -42,6 +42,9 @@ jobs:
           echo '---'
           echo 'anchorVersion: "$(nix shell .#anchor-0_18_0 --command anchor --version)"'
           echo 'createdAt: "$(date)"'
+          echo 'repo: "blockworks-foundation/mango"'
+          echo 'tag: "v2.1.2"'
+          echo 'slug: "blockworks-foundation__mango-v2.1.2"'
           echo '---'
           echo '# blockworks-foundation/mango v2.1.2' >> artifacts/README.md
           echo '## Checksums' >> artifacts/README.md

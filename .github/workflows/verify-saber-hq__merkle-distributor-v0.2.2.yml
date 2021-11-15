@@ -42,6 +42,9 @@ jobs:
           echo '---'
           echo 'anchorVersion: "$(nix shell .#anchor-0_18_0 --command anchor --version)"'
           echo 'createdAt: "$(date)"'
+          echo 'repo: "saber-hq/merkle-distributor"'
+          echo 'tag: "v0.2.2"'
+          echo 'slug: "saber-hq__merkle-distributor-v0.2.2"'
           echo '---'
           echo '# saber-hq/merkle-distributor v0.2.2' >> artifacts/README.md
           echo '## Checksums' >> artifacts/README.md

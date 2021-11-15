@@ -31,8 +31,6 @@ jobs:
       - name: Download verifiable tarball of program
         run: |
           curl https://github.com/saber-hq/merkle-distributor/archive/refs/tags/v0.2.2.tar.gz > release.tar.gz
-          mkdir build
-          cd build
           tar xzvf release.tar.gz
 
           mkdir artifacts

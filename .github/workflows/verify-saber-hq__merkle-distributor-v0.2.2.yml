@@ -39,13 +39,13 @@ jobs:
           sha256sum artifacts/verifiable/* >> artifacts/checksums.txt
           sha256sum artifacts/idl/* >> artifacts/checksums.txt
 
-          echo '---'
-          echo 'anchorVersion: "$(nix shell .#anchor-0_18_0 --command anchor --version)"'
-          echo 'createdAt: "$(date)"'
-          echo 'repo: "saber-hq/merkle-distributor"'
-          echo 'tag: "v0.2.2"'
-          echo 'slug: "saber-hq__merkle-distributor-v0.2.2"'
-          echo '---'
+          echo '---' >> artifacts/README.md
+          echo 'anchorVersion: "$(nix shell .#anchor-0_18_0 --command anchor --version)"' >> artifacts/README.md
+          echo 'createdAt: "$(date)"' >> artifacts/README.md
+          echo 'repo: "saber-hq/merkle-distributor"' >> artifacts/README.md
+          echo 'tag: "v0.2.2"' >> artifacts/README.md
+          echo 'slug: "saber-hq__merkle-distributor-v0.2.2"' >> artifacts/README.md
+          echo '---' >> artifacts/README.md
           echo '# saber-hq/merkle-distributor v0.2.2' >> artifacts/README.md
           echo '## Checksums' >> artifacts/README.md
           echo '\`\`\`' >> artifacts/README.md

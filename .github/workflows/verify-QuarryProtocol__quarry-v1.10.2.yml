@@ -28,7 +28,7 @@ jobs:
       - name: Extract sources
         run: echo $(tar xzvf release.tar.gz | head -1 | cut -f1 -d"/") > dirname
       - name: Login to Anchor
-        run: nix shell ./#anchor-0_18_0 --command anchor login ${{ secrets.ANCHOR_AUTH_TOKEN }}
+        run: nix shell ./#anchor-0_19_0 --command anchor login ${{ secrets.ANCHOR_AUTH_TOKEN }}
       - name: Extract addresses
         run: |
           cd $(cat dirname)
@@ -37,14 +37,14 @@ jobs:
           echo "Addresses"
           cat addresses.json
       - name: Perform verifiable build
-        run: cd $(cat dirname) && nix shell ../#anchor-0_18_0 --command anchor build --verifiable
+        run: cd $(cat dirname) && nix shell ../#anchor-0_19_0 --command anchor build --verifiable
       - name: Publish build to Anchor Registry
         run: |
           cd $(cat dirname)
           cat addresses.json | jq .
           nix shell ../#devShell --command bash -c 'cat addresses.json | jq -r ". | keys | .[]" > programs.txt'
           for PROGRAM in $(cat programs.txt); do
-            yes 'yes' | nix shell ../#anchor-0_18_0 --command anchor publish "$PROGRAM" --provider.cluster mainnet
+            yes 'yes' | nix shell ../#anchor-0_19_0 --command anchor publish "$PROGRAM" --provider.cluster mainnet
           done
       - name: Record program artifacts
         run: |
@@ -60,7 +60,7 @@ jobs:
           cat artifacts/checksums.txt | jq -R '. | split("  ") | [{key:.[0],value:.[1]}] | from_entries' | jq -s add > artifacts/checksums.json
 
           echo '---' >> artifacts/README.md
-          echo "anchorVersion: \"$(nix shell .#anchor-0_18_0 --command anchor --version)\"" >> artifacts/README.md
+          echo "anchorVersion: \"$(nix shell .#anchor-0_19_0 --command anchor --version)\"" >> artifacts/README.md
           echo "createdAt: \"$(date)\"" >> artifacts/README.md
           echo 'repo: "QuarryProtocol/quarry"' >> artifacts/README.md
           echo 'tag: "v1.10.2"' >> artifacts/README.md

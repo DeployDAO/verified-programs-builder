@@ -1,10 +1,10 @@
 
-name: Verify saber-hq/stable-swap v1.6.1
+name: Verify saber-hq/stable-swap v1.6.3
 
 on:
   push:
     paths:
-      - ".github/workflows/verify-saber-hq__stable-swap-v1.6.1.yml"
+      - ".github/workflows/verify-saber-hq__stable-swap-v1.6.3.yml"
 
 jobs:
   release-binaries:
@@ -24,7 +24,7 @@ jobs:
           name: saber
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - name: Download sources from GitHub
-        run: curl -L https://github.com/saber-hq/stable-swap/archive/refs/tags/v1.6.1.tar.gz > release.tar.gz
+        run: curl -L https://github.com/saber-hq/stable-swap/archive/refs/tags/v1.6.3.tar.gz > release.tar.gz
       - name: Extract sources
         run: echo $(tar xzvf release.tar.gz | head -1 | cut -f1 -d"/") > dirname
       - name: Login to Anchor
@@ -67,10 +67,10 @@ jobs:
           echo "anchorVersion: \"$(nix shell .#anchor-0_19_0 --command anchor --version)\"" >> artifacts/README.md
           echo "createdAt: \"$(date)\"" >> artifacts/README.md
           echo 'repo: "saber-hq/stable-swap"' >> artifacts/README.md
-          echo 'tag: "v1.6.1"' >> artifacts/README.md
-          echo 'slug: "saber-hq__stable-swap-v1.6.1"' >> artifacts/README.md
+          echo 'tag: "v1.6.3"' >> artifacts/README.md
+          echo 'slug: "saber-hq__stable-swap-v1.6.3"' >> artifacts/README.md
           echo '---' >> artifacts/README.md
-          echo '# saber-hq/stable-swap v1.6.1' >> artifacts/README.md
+          echo '# saber-hq/stable-swap v1.6.3' >> artifacts/README.md
           echo '## Checksums' >> artifacts/README.md
           echo '```' >> artifacts/README.md
           cat artifacts/checksums.txt >> artifacts/README.md
@@ -80,5 +80,5 @@ jobs:
         with:
           deploy_key: ${{ secrets.DIST_DEPLOY_KEY }}
           external_repository: DeployDAO/verified-program-artifacts
-          publish_branch: verify-saber-hq__stable-swap-v1.6.1
+          publish_branch: verify-saber-hq__stable-swap-v1.6.3
           publish_dir: ./artifacts/

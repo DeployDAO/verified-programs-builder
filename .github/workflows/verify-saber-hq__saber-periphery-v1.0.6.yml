@@ -1,10 +1,10 @@
 
-name: Verify SenchaHQ/sencha v0.9.2
+name: Verify saber-hq/saber-periphery v1.0.6
 
 on:
   push:
     paths:
-      - ".github/workflows/verify-SenchaHQ__sencha-v0.9.2.yml"
+      - ".github/workflows/verify-saber-hq__saber-periphery-v1.0.6.yml"
 
 jobs:
   release-binaries:
@@ -24,7 +24,7 @@ jobs:
           name: saber
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - name: Download sources from GitHub
-        run: curl -L https://github.com/SenchaHQ/sencha/archive/refs/tags/v0.9.2.tar.gz > release.tar.gz
+        run: curl -L https://github.com/saber-hq/saber-periphery/archive/refs/tags/v1.0.6.tar.gz > release.tar.gz
       - name: Extract sources
         run: echo $(tar xzvf release.tar.gz | head -1 | cut -f1 -d"/") > dirname
       - name: Login to Anchor
@@ -70,11 +70,11 @@ jobs:
           echo '---' >> artifacts/README.md
           echo "anchorVersion: \"$(nix shell .#anchor-0_19_0 --command anchor --version)\"" >> artifacts/README.md
           echo "createdAt: \"$(date)\"" >> artifacts/README.md
-          echo 'repo: "SenchaHQ/sencha"' >> artifacts/README.md
-          echo 'tag: "v0.9.2"' >> artifacts/README.md
-          echo 'slug: "SenchaHQ__sencha-v0.9.2"' >> artifacts/README.md
+          echo 'repo: "saber-hq/saber-periphery"' >> artifacts/README.md
+          echo 'tag: "v1.0.6"' >> artifacts/README.md
+          echo 'slug: "saber-hq__saber-periphery-v1.0.6"' >> artifacts/README.md
           echo '---' >> artifacts/README.md
-          echo '# SenchaHQ/sencha v0.9.2' >> artifacts/README.md
+          echo '# saber-hq/saber-periphery v1.0.6' >> artifacts/README.md
           echo '## Checksums' >> artifacts/README.md
           echo '```' >> artifacts/README.md
           cat artifacts/checksums.txt >> artifacts/README.md
@@ -84,5 +84,5 @@ jobs:
         with:
           deploy_key: ${{ secrets.DIST_DEPLOY_KEY }}
           external_repository: DeployDAO/verified-program-artifacts
-          publish_branch: verify-SenchaHQ__sencha-v0.9.2
+          publish_branch: verify-saber-hq__saber-periphery-v1.0.6
           publish_dir: ./artifacts/

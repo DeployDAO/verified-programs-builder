@@ -1,0 +1,88 @@
+
+name: Verify GokiProtocol/goki v0.5.5
+
+on:
+  push:
+    paths:
+      - ".github/workflows/verify-GokiProtocol__goki-v0.5.5.yml"
+
+jobs:
+  release-binaries:
+    runs-on: ubuntu-latest
+    name: Release verifiable binaries
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v14
+        with:
+          install_url: https://nixos-nix-install-tests.cachix.org/serve/i6laym9jw3wg9mw6ncyrk6gjx4l34vvx/install
+          install_options: "--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve"
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v10
+        with:
+          name: saber
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - name: Download sources from GitHub
+        run: curl -L https://github.com/GokiProtocol/goki/archive/refs/tags/v0.5.5.tar.gz > release.tar.gz
+      - name: Extract sources
+        run: echo $(tar xzvf release.tar.gz | head -1 | cut -f1 -d"/") > dirname
+      - name: Login to Anchor
+        run: nix shell ./#anchor-0_19_0 --command anchor login ${{ secrets.ANCHOR_AUTH_TOKEN }}
+      - name: Extract addresses
+        run: |
+          cd $(cat dirname)
+          ls
+          nix shell ../#devShell --command bash -c 'cat Anchor.toml | yj -t | jq .programs.mainnet > addresses.json'
+          echo "Addresses"
+          cat addresses.json
+      - name: Perform verifiable build
+        run: |
+          cd $(cat dirname)
+          cat addresses.json | jq .
+          nix shell ../#devShell --command bash -c 'cat addresses.json | jq -r ". | keys | .[]" > programs.txt'
+          for PROGRAM in $(cat programs.txt); do
+            nix shell ../#anchor-0_19_0 --command anchor build --verifiable --program-name "$PROGRAM"
+          done
+      - name: Publish build to Anchor Registry
+        run: |
+          cd $(cat dirname)
+          for PROGRAM in $(cat programs.txt); do
+            yes 'yes' | nix shell ../#anchor-0_19_0 --command anchor publish "$PROGRAM" --provider.cluster mainnet
+          done
+      - name: Record program artifacts
+        run: |
+          mkdir artifacts
+          mv $(cat dirname)/target/verifiable/ artifacts/verifiable/
+          mv $(cat dirname)/target/idl/ artifacts/idl/
+          mv $(cat dirname)/addresses.json artifacts/addresses.json
+
+          sha256sum release.tar.gz >> artifacts/checksums.txt
+          sha256sum artifacts/verifiable/* >> artifacts/checksums.txt
+
+          # IDLs might not be generated
+          if compgen -G "artifacts/idl/*" > /dev/null; then
+            sha256sum artifacts/idl/* >> artifacts/checksums.txt
+          fi
+
+          cat artifacts/checksums.txt | jq -R '. | split("  ") | [{key:.[0],value:.[1]}] | from_entries' | jq -s add > artifacts/checksums.json
+
+          echo '---' >> artifacts/README.md
+          echo "anchorVersion: \"$(nix shell .#anchor-0_19_0 --command anchor --version)\"" >> artifacts/README.md
+          echo "createdAt: \"$(date)\"" >> artifacts/README.md
+          echo 'repo: "GokiProtocol/goki"' >> artifacts/README.md
+          echo 'tag: "v0.5.5"' >> artifacts/README.md
+          echo 'slug: "GokiProtocol__goki-v0.5.5"' >> artifacts/README.md
+          echo '---' >> artifacts/README.md
+          echo '# GokiProtocol/goki v0.5.5' >> artifacts/README.md
+          echo '## Checksums' >> artifacts/README.md
+          echo '```' >> artifacts/README.md
+          cat artifacts/checksums.txt >> artifacts/README.md
+          echo '```' >> artifacts/README.md
+      - name: Upload
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DIST_DEPLOY_KEY }}
+          external_repository: DeployDAO/verified-program-artifacts
+          publish_branch: verify-GokiProtocol__goki-v0.5.5
+          publish_dir: ./artifacts/

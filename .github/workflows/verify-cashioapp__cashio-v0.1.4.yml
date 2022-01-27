@@ -67,7 +67,7 @@ jobs:
           echo 'repo: "cashioapp/cashio"' >> artifacts/build-info.yml
           echo 'tag: "v0.1.4"' >> artifacts/build-info.yml
           echo 'slug: "cashioapp__cashio-v0.1.4"' >> artifacts/build-info.yml
-          nix shell .#devShell --command bash -c 'cat build-info.yml | yq > build-info.json'
+          nix shell .#devShell --command bash -c 'cat build-info.yml | yq > artifacts/build-info.json'
 
           echo '---' >> artifacts/README.md
           cat artifacts/build-info.yml >> artifacts/README.md

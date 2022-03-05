@@ -1,0 +1,48 @@
+{
+  "anchor_version": "0.22.0",
+  "solana_version": "1.8.16",
+  "features": {
+    "seeds": true
+  },
+  "scripts": {
+    "test": "yarn mocha"
+  },
+  "provider": {
+    "cluster": "localnet",
+    "wallet": "./tests/spec-key.json"
+  },
+  "test": {
+    "genesis": [
+      {
+        "address": "YiiTopEnX2vyoWdXuG45ovDFYZars4XZ4w6td6RVTFm",
+        "program": "./artifacts/deploy/yi.so"
+      },
+      {
+        "address": "Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw",
+        "program": "./artifacts/deploy/govern.so"
+      },
+      {
+        "address": "LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw",
+        "program": "./artifacts/deploy/locked_voter.so"
+      },
+      {
+        "address": "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH",
+        "program": "./artifacts/deploy/smart_wallet.so"
+      }
+    ]
+  },
+  "programs": {
+    "localnet": {
+      "save_token": "SAVEd9pHcncknnMWdP8RSbhDUhw3nrzwmZ6F6RAUiio"
+    },
+    "devnet": {
+      "save_token": "SAVEd9pHcncknnMWdP8RSbhDUhw3nrzwmZ6F6RAUiio"
+    },
+    "testnet": {
+      "save_token": "SAVEd9pHcncknnMWdP8RSbhDUhw3nrzwmZ6F6RAUiio"
+    },
+    "mainnet": {
+      "save_token": "SAVEd9pHcncknnMWdP8RSbhDUhw3nrzwmZ6F6RAUiio"
+    }
+  }
+}

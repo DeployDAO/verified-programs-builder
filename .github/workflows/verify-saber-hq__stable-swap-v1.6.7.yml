@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-saber-hq__stable-swap-v1.6.7.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_19_0
-    PROGRAM_GITHUB_REPO: saber-hq/stable-swap
-    PROGRAM_GIT_TAG: v1.6.7
-    PROGRAM_SLUG: saber-hq__stable-swap-v1.6.7
-    PROGRAM_TARBALL_URL: https://github.com/saber-hq/stable-swap/archive/refs/tags/v1.6.7.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_19_0
+  PROGRAM_GITHUB_REPO: saber-hq/stable-swap
+  PROGRAM_GIT_TAG: v1.6.7
+  PROGRAM_SLUG: saber-hq__stable-swap-v1.6.7
+  PROGRAM_TARBALL_URL: https://github.com/saber-hq/stable-swap/archive/refs/tags/v1.6.7.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

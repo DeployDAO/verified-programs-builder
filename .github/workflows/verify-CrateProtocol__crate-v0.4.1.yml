@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-CrateProtocol__crate-v0.4.1.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_19_0
-    PROGRAM_GITHUB_REPO: CrateProtocol/crate
-    PROGRAM_GIT_TAG: v0.4.1
-    PROGRAM_SLUG: CrateProtocol__crate-v0.4.1
-    PROGRAM_TARBALL_URL: https://github.com/CrateProtocol/crate/archive/refs/tags/v0.4.1.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_19_0
+  PROGRAM_GITHUB_REPO: CrateProtocol/crate
+  PROGRAM_GIT_TAG: v0.4.1
+  PROGRAM_SLUG: CrateProtocol__crate-v0.4.1
+  PROGRAM_TARBALL_URL: https://github.com/CrateProtocol/crate/archive/refs/tags/v0.4.1.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

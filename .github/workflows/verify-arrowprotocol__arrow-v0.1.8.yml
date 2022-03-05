@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-arrowprotocol__arrow-v0.1.8.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_19_0
-    PROGRAM_GITHUB_REPO: arrowprotocol/arrow
-    PROGRAM_GIT_TAG: v0.1.8
-    PROGRAM_SLUG: arrowprotocol__arrow-v0.1.8
-    PROGRAM_TARBALL_URL: https://github.com/arrowprotocol/arrow/archive/refs/tags/v0.1.8.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_19_0
+  PROGRAM_GITHUB_REPO: arrowprotocol/arrow
+  PROGRAM_GIT_TAG: v0.1.8
+  PROGRAM_SLUG: arrowprotocol__arrow-v0.1.8
+  PROGRAM_TARBALL_URL: https://github.com/arrowprotocol/arrow/archive/refs/tags/v0.1.8.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

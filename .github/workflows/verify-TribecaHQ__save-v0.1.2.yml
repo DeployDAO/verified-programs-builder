@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-TribecaHQ__save-v0.1.2.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_22_0
-    PROGRAM_GITHUB_REPO: TribecaHQ/save
-    PROGRAM_GIT_TAG: v0.1.2
-    PROGRAM_SLUG: TribecaHQ__save-v0.1.2
-    PROGRAM_TARBALL_URL: https://github.com/TribecaHQ/save/archive/refs/tags/v0.1.2.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_22_0
+  PROGRAM_GITHUB_REPO: TribecaHQ/save
+  PROGRAM_GIT_TAG: v0.1.2
+  PROGRAM_SLUG: TribecaHQ__save-v0.1.2
+  PROGRAM_TARBALL_URL: https://github.com/TribecaHQ/save/archive/refs/tags/v0.1.2.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

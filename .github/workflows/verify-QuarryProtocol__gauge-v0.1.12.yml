@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-QuarryProtocol__gauge-v0.1.12.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_20_1
-    PROGRAM_GITHUB_REPO: QuarryProtocol/gauge
-    PROGRAM_GIT_TAG: v0.1.12
-    PROGRAM_SLUG: QuarryProtocol__gauge-v0.1.12
-    PROGRAM_TARBALL_URL: https://github.com/QuarryProtocol/gauge/archive/refs/tags/v0.1.12.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_20_1
+  PROGRAM_GITHUB_REPO: QuarryProtocol/gauge
+  PROGRAM_GIT_TAG: v0.1.12
+  PROGRAM_SLUG: QuarryProtocol__gauge-v0.1.12
+  PROGRAM_TARBALL_URL: https://github.com/QuarryProtocol/gauge/archive/refs/tags/v0.1.12.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

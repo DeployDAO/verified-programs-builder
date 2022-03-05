@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-SenchaHQ__sencha-v0.9.4.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_19_0
-    PROGRAM_GITHUB_REPO: SenchaHQ/sencha
-    PROGRAM_GIT_TAG: v0.9.4
-    PROGRAM_SLUG: SenchaHQ__sencha-v0.9.4
-    PROGRAM_TARBALL_URL: https://github.com/SenchaHQ/sencha/archive/refs/tags/v0.9.4.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_19_0
+  PROGRAM_GITHUB_REPO: SenchaHQ/sencha
+  PROGRAM_GIT_TAG: v0.9.4
+  PROGRAM_SLUG: SenchaHQ__sencha-v0.9.4
+  PROGRAM_TARBALL_URL: https://github.com/SenchaHQ/sencha/archive/refs/tags/v0.9.4.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

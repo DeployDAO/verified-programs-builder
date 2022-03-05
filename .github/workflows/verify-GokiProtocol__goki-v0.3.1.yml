@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-GokiProtocol__goki-v0.3.1.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_18_2
-    PROGRAM_GITHUB_REPO: GokiProtocol/goki
-    PROGRAM_GIT_TAG: v0.3.1
-    PROGRAM_SLUG: GokiProtocol__goki-v0.3.1
-    PROGRAM_TARBALL_URL: https://github.com/GokiProtocol/goki/archive/refs/tags/v0.3.1.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_18_2
+  PROGRAM_GITHUB_REPO: GokiProtocol/goki
+  PROGRAM_GIT_TAG: v0.3.1
+  PROGRAM_SLUG: GokiProtocol__goki-v0.3.1
+  PROGRAM_TARBALL_URL: https://github.com/GokiProtocol/goki/archive/refs/tags/v0.3.1.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

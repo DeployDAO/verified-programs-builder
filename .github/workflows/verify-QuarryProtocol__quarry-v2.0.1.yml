@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-QuarryProtocol__quarry-v2.0.1.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_20_1
-    PROGRAM_GITHUB_REPO: QuarryProtocol/quarry
-    PROGRAM_GIT_TAG: v2.0.1
-    PROGRAM_SLUG: QuarryProtocol__quarry-v2.0.1
-    PROGRAM_TARBALL_URL: https://github.com/QuarryProtocol/quarry/archive/refs/tags/v2.0.1.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_20_1
+  PROGRAM_GITHUB_REPO: QuarryProtocol/quarry
+  PROGRAM_GIT_TAG: v2.0.1
+  PROGRAM_SLUG: QuarryProtocol__quarry-v2.0.1
+  PROGRAM_TARBALL_URL: https://github.com/QuarryProtocol/quarry/archive/refs/tags/v2.0.1.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

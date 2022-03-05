@@ -3,13 +3,12 @@ on:
   push:
     paths:
       - .github/workflows/verify-cashioapp__cashio-v0.1.4.yml
-defaults:
-  env:
-    ANCHOR_CLI_VERSION: 0_19_0
-    PROGRAM_GITHUB_REPO: cashioapp/cashio
-    PROGRAM_GIT_TAG: v0.1.4
-    PROGRAM_SLUG: cashioapp__cashio-v0.1.4
-    PROGRAM_TARBALL_URL: https://github.com/cashioapp/cashio/archive/refs/tags/v0.1.4.tar.gz
+env:
+  ANCHOR_CLI_VERSION: 0_19_0
+  PROGRAM_GITHUB_REPO: cashioapp/cashio
+  PROGRAM_GIT_TAG: v0.1.4
+  PROGRAM_SLUG: cashioapp__cashio-v0.1.4
+  PROGRAM_TARBALL_URL: https://github.com/cashioapp/cashio/archive/refs/tags/v0.1.4.tar.gz
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

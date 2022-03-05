@@ -5,7 +5,7 @@ on:
       - .github/workflows/verify-saber-hq__saber-periphery-v1.0.6.yml
 defaults:
   env:
-    ANCHOR_CLI_VERSION: 0_22_0
+    ANCHOR_CLI_VERSION: 0_19_0
     PROGRAM_GITHUB_REPO: saber-hq/saber-periphery
     PROGRAM_GIT_TAG: v1.0.6
     PROGRAM_SLUG: saber-hq__saber-periphery-v1.0.6

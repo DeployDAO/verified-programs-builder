@@ -5,7 +5,7 @@ on:
       - .github/workflows/verify-QuarryProtocol__quarry-v1.10.2.yml
 defaults:
   env:
-    ANCHOR_CLI_VERSION: 0_22_0
+    ANCHOR_CLI_VERSION: 0_18_2
     PROGRAM_GITHUB_REPO: QuarryProtocol/quarry
     PROGRAM_GIT_TAG: v1.10.2
     PROGRAM_SLUG: QuarryProtocol__quarry-v1.10.2

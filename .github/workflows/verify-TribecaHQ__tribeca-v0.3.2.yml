@@ -5,7 +5,7 @@ on:
       - .github/workflows/verify-TribecaHQ__tribeca-v0.3.2.yml
 defaults:
   env:
-    ANCHOR_CLI_VERSION: 0_22_0
+    ANCHOR_CLI_VERSION: 0_19_0
     PROGRAM_GITHUB_REPO: TribecaHQ/tribeca
     PROGRAM_GIT_TAG: v0.3.2
     PROGRAM_SLUG: TribecaHQ__tribeca-v0.3.2

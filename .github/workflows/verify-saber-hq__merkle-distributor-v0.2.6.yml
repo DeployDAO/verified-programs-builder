@@ -5,7 +5,7 @@ on:
       - .github/workflows/verify-saber-hq__merkle-distributor-v0.2.6.yml
 defaults:
   env:
-    ANCHOR_CLI_VERSION: 0_22_0
+    ANCHOR_CLI_VERSION: 0_20_1
     PROGRAM_GITHUB_REPO: saber-hq/merkle-distributor
     PROGRAM_GIT_TAG: v0.2.6
     PROGRAM_SLUG: saber-hq__merkle-distributor-v0.2.6

@@ -5,7 +5,7 @@ on:
       - .github/workflows/verify-SenchaHQ__sencha-v0.9.4.yml
 defaults:
   env:
-    ANCHOR_CLI_VERSION: 0_22_0
+    ANCHOR_CLI_VERSION: 0_19_0
     PROGRAM_GITHUB_REPO: SenchaHQ/sencha
     PROGRAM_GIT_TAG: v0.9.4
     PROGRAM_SLUG: SenchaHQ__sencha-v0.9.4

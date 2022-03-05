@@ -5,7 +5,7 @@ on:
       - .github/workflows/verify-saber-hq__pool-manager-v0.1.10.yml
 defaults:
   env:
-    ANCHOR_CLI_VERSION: 0_22_0
+    ANCHOR_CLI_VERSION: 0_20_1
     PROGRAM_GITHUB_REPO: saber-hq/pool-manager
     PROGRAM_GIT_TAG: v0.1.10
     PROGRAM_SLUG: saber-hq__pool-manager-v0.1.10

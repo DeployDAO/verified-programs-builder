@@ -5,7 +5,7 @@ on:
       - .github/workflows/verify-GokiProtocol__goki-v0.5.4.yml
 defaults:
   env:
-    ANCHOR_CLI_VERSION: 0_22_0
+    ANCHOR_CLI_VERSION: 0_19_0
     PROGRAM_GITHUB_REPO: GokiProtocol/goki
     PROGRAM_GIT_TAG: v0.5.4
     PROGRAM_SLUG: GokiProtocol__goki-v0.5.4

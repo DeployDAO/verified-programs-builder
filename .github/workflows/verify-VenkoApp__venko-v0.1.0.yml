@@ -5,7 +5,7 @@ on:
       - .github/workflows/verify-VenkoApp__venko-v0.1.0.yml
 defaults:
   env:
-    ANCHOR_CLI_VERSION: 0_22_0
+    ANCHOR_CLI_VERSION: 0_20_1
     PROGRAM_GITHUB_REPO: VenkoApp/venko
     PROGRAM_GIT_TAG: v0.1.0
     PROGRAM_SLUG: VenkoApp__venko-v0.1.0

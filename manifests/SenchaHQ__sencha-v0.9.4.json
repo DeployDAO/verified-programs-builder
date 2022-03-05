@@ -1,0 +1,28 @@
+{
+  "anchor_version": "0.19.0",
+  "solana_version": "1.8.9",
+  "registry": {
+    "url": "https://anchor.projectserum.com"
+  },
+  "provider": {
+    "cluster": "localnet",
+    "wallet": "./test_wallet.json"
+  },
+  "scripts": {
+    "test": "yarn mocha"
+  },
+  "programs": {
+    "localnet": {
+      "cpamm": "SCHAtsf8mbjyjiv4LkhLKutTf6JnZAbdJKFkXQNMFHZ"
+    },
+    "testnet": {
+      "cpamm": "SCHAtsf8mbjyjiv4LkhLKutTf6JnZAbdJKFkXQNMFHZ"
+    },
+    "devnet": {
+      "cpamm": "SCHAtsf8mbjyjiv4LkhLKutTf6JnZAbdJKFkXQNMFHZ"
+    },
+    "mainnet": {
+      "cpamm": "SCHAtsf8mbjyjiv4LkhLKutTf6JnZAbdJKFkXQNMFHZ"
+    }
+  }
+}

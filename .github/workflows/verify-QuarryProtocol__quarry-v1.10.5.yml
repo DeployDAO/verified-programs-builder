@@ -113,7 +113,7 @@ jobs:
 
           echo 'repo: "${{ env.PROGRAM_GITHUB_REPO }}"' >> artifacts/build-info.yml
 
-          echo 'tag: "${{ env.PROGRAM_GIT_TAG} }"' >> artifacts/build-info.yml
+          echo 'tag: "${{ env.PROGRAM_GIT_TAG }}"' >> artifacts/build-info.yml
 
           echo 'slug: "${{ env.PROGRAM_SLUG }}"' >> artifacts/build-info.yml
 

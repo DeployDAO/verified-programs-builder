@@ -23,7 +23,7 @@ jobs:
       - name: Extract sources
         run: echo $(tar xzvf release.tar.gz | head -1 | cut -f1 -d"/") > dirname
       - name: Login to Anchor
-        run: nix shell ./#anchor-0_19_0 --command anchor login ${{ secrets.ANCHOR_AUTH_TOKEN }}
+        run: nix shell ./#anchor-0_22_0 --command anchor login ${{ secrets.ANCHOR_AUTH_TOKEN }}
       - name: Extract addresses
         run: |
           cd $(cat dirname)
@@ -37,13 +37,13 @@ jobs:
           cat addresses.json | jq .
           nix shell ../#devShell --command bash -c 'cat addresses.json | jq -r ". | keys | .[]" > programs.txt'
           for PROGRAM in $(cat programs.txt); do
-            nix shell ../#anchor-0_19_0 --command anchor build --verifiable --program-name "$PROGRAM"
+            nix shell ../#anchor-0_22_0 --command anchor build --verifiable --program-name "$PROGRAM"
           done
       - name: Publish build to Anchor Registry
         run: |
           cd $(cat dirname)
           for PROGRAM in $(cat programs.txt); do
-            yes 'yes' | nix shell ../#anchor-0_19_0 --command anchor publish "$PROGRAM" --provider.cluster mainnet
+            yes 'yes' | nix shell ../#anchor-0_22_0 --command anchor publish "$PROGRAM" --provider.cluster mainnet
           done
       - name: Record program artifacts
         run: |
@@ -76,7 +76,7 @@ jobs:
           cat artifacts/sizes.txt | jq -R '. | split("\t") | [{key:.[1],value:.[0]}] | from_entries' | jq -s add > artifacts/sizes.json
           cat artifacts/checksums.txt | jq -R '. | split("  ") | [{key:.[0],value:.[1]}] | from_entries' | jq -s add > artifacts/checksums.json
 
-          echo "anchorVersion: \"$(nix shell .#anchor-0_19_0 --command anchor --version)\"" >> artifacts/build-info.yml
+          echo "anchorVersion: \"$(nix shell .#anchor-0_22_0 --command anchor --version)\"" >> artifacts/build-info.yml
           echo "createdAt: \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"" >> artifacts/build-info.yml
           echo 'repo: "TribecaHQ/tribeca"' >> artifacts/build-info.yml
           echo 'tag: "v0.3.0"' >> artifacts/build-info.yml

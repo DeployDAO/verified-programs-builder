@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v1.10.2
   PROGRAM_SLUG: QuarryProtocol__quarry-v1.10.2
   PROGRAM_TARBALL_URL: https://github.com/QuarryProtocol/quarry/archive/refs/tags/v1.10.2.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"quarry_merge_mine":"QMMD16kjauP5knBwxNUJRZ1Z5o3deBuFrqVjBVmmqto","quarry_mine":"QMNeHCGYnLVDn1icRAfQZpjPLBNkfGbSKRB83G5d8KB","quarry_mint_wrapper":"QMWoBmAyJLAsA1Lh9ugMTw2gciTihncciphzdNzdZYV","quarry_operator":"QoP6NfrQbaGnccXQrMLUkog2tQZ4C1RFgJcwDnT8Kmz","quarry_redeemer":"QRDxhMw1P2NEfiw5mYXG79bwfgHTdasY2xNP76XSea9","quarry_registry":"QREGBnEj9Sa5uR91AV8u3FxThgP5ZCvdZUW2bHAkfNc"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"quarry_merge_mine":"QMMD16kjauP5knBwxNUJRZ1Z5o3deBuFrqVjBVmmqto","quarry_mine":"QMNeHCGYnLVDn1icRAfQZpjPLBNkfGbSKRB83G5d8KB","quarry_mint_wrapper":"QMWoBmAyJLAsA1Lh9ugMTw2gciTihncciphzdNzdZYV","quarry_operator":"QoP6NfrQbaGnccXQrMLUkog2tQZ4C1RFgJcwDnT8Kmz","quarry_redeemer":"QRDxhMw1P2NEfiw5mYXG79bwfgHTdasY2xNP76XSea9","quarry_registry":"QREGBnEj9Sa5uR91AV8u3FxThgP5ZCvdZUW2bHAkfNc"}'
   PROGRAM_NAMES: quarry_merge_mine quarry_mine quarry_mint_wrapper quarry_operator
     quarry_redeemer quarry_registry
 jobs:
@@ -32,7 +32,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

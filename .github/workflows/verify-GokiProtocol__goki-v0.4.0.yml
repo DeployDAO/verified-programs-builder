@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.4.0
   PROGRAM_SLUG: GokiProtocol__goki-v0.4.0
   PROGRAM_TARBALL_URL: https://github.com/GokiProtocol/goki/archive/refs/tags/v0.4.0.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"smart_wallet":"GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH","token_signer":"NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"smart_wallet":"GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH","token_signer":"NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"}'
   PROGRAM_NAMES: smart_wallet token_signer
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

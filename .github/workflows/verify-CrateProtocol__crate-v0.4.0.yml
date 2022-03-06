@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.4.0
   PROGRAM_SLUG: CrateProtocol__crate-v0.4.0
   PROGRAM_TARBALL_URL: https://github.com/CrateProtocol/crate/archive/refs/tags/v0.4.0.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"crate_token":"CRATwLpu6YZEeiVq9ajjxs61wPQ9f29s1UoQR9siJCRs","crate_redeem_in_kind":"1NKyU3qShZC3oJgvCCftAHDi5TFxcJwfyUz2FeZsiwE"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"crate_token":"CRATwLpu6YZEeiVq9ajjxs61wPQ9f29s1UoQR9siJCRs","crate_redeem_in_kind":"1NKyU3qShZC3oJgvCCftAHDi5TFxcJwfyUz2FeZsiwE"}'
   PROGRAM_NAMES: crate_token crate_redeem_in_kind
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.1.2
   PROGRAM_SLUG: TribecaHQ__save-v0.1.2
   PROGRAM_TARBALL_URL: https://github.com/TribecaHQ/save/archive/refs/tags/v0.1.2.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"save_token":"SAVEd9pHcncknnMWdP8RSbhDUhw3nrzwmZ6F6RAUiio"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"save_token":"SAVEd9pHcncknnMWdP8RSbhDUhw3nrzwmZ6F6RAUiio"}'
   PROGRAM_NAMES: save_token
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.3.0
   PROGRAM_SLUG: saber-hq__merkle-distributor-v0.3.0
   PROGRAM_TARBALL_URL: https://github.com/saber-hq/merkle-distributor/archive/refs/tags/v0.3.0.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"merkle_distributor":"MRKGLMizK9XSTaD1d1jbVkdHZbQVCSnPpYiTw9aKQv8"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"merkle_distributor":"MRKGLMizK9XSTaD1d1jbVkdHZbQVCSnPpYiTw9aKQv8"}'
   PROGRAM_NAMES: merkle_distributor
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

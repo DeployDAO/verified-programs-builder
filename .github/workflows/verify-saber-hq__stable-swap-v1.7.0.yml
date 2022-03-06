@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v1.7.0
   PROGRAM_SLUG: saber-hq__stable-swap-v1.7.0
   PROGRAM_TARBALL_URL: https://github.com/saber-hq/stable-swap/archive/refs/tags/v1.7.0.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"stable_swap":"SSwpkEEcbUqx4vtoEByFjSkhKdCT862DNVb52nZg1UZ"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"stable_swap":"SSwpkEEcbUqx4vtoEByFjSkhKdCT862DNVb52nZg1UZ"}'
   PROGRAM_NAMES: stable_swap
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

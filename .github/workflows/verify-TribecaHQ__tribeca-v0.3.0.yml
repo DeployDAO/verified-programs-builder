@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.3.0
   PROGRAM_SLUG: TribecaHQ__tribeca-v0.3.0
   PROGRAM_TARBALL_URL: https://github.com/TribecaHQ/tribeca/archive/refs/tags/v0.3.0.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"govern":"Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw","locked_voter":"LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"govern":"Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw","locked_voter":"LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw"}'
   PROGRAM_NAMES: govern locked_voter
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.1.3
   PROGRAM_SLUG: QuarryProtocol__gauge-v0.1.3
   PROGRAM_TARBALL_URL: https://github.com/QuarryProtocol/gauge/archive/refs/tags/v0.1.3.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"gauge":"GaugesLJrnVjNNWLReiw3Q7xQhycSBRgeHGTMDUaX231"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"gauge":"GaugesLJrnVjNNWLReiw3Q7xQhycSBRgeHGTMDUaX231"}'
   PROGRAM_NAMES: gauge
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

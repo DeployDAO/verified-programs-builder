@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v1.0.7
   PROGRAM_SLUG: saber-hq__saber-periphery-v1.0.7
   PROGRAM_TARBALL_URL: https://github.com/saber-hq/saber-periphery/archive/refs/tags/v1.0.7.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"add_decimals":"DecZY86MU5Gj7kppfUCEmd4LbXXuyZH1yHaP2NTqdiZB","continuation_router":"Crt7UoUR6QgrFrN7j8rmSQpUTNWNSitSwWvsWGf1qZ5t","lockup":"LockKXdYQVMbhhckwH3BxoYJ9FYatcZjwNGEuCwY33Q","mint_proxy":"UBEBk5idELqykEEaycYtQ7iBVrCg6NmvFSzMpdr22mL","redeemer":"RDM23yr8pr1kEAmhnFpaabPny6C9UVcEcok3Py5v86X"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"add_decimals":"DecZY86MU5Gj7kppfUCEmd4LbXXuyZH1yHaP2NTqdiZB","continuation_router":"Crt7UoUR6QgrFrN7j8rmSQpUTNWNSitSwWvsWGf1qZ5t","lockup":"LockKXdYQVMbhhckwH3BxoYJ9FYatcZjwNGEuCwY33Q","mint_proxy":"UBEBk5idELqykEEaycYtQ7iBVrCg6NmvFSzMpdr22mL","redeemer":"RDM23yr8pr1kEAmhnFpaabPny6C9UVcEcok3Py5v86X"}'
   PROGRAM_NAMES: add_decimals continuation_router lockup mint_proxy redeemer
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

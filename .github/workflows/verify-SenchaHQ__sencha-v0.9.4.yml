@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.9.4
   PROGRAM_SLUG: SenchaHQ__sencha-v0.9.4
   PROGRAM_TARBALL_URL: https://github.com/SenchaHQ/sencha/archive/refs/tags/v0.9.4.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"cpamm":"SCHAtsf8mbjyjiv4LkhLKutTf6JnZAbdJKFkXQNMFHZ"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"cpamm":"SCHAtsf8mbjyjiv4LkhLKutTf6JnZAbdJKFkXQNMFHZ"}'
   PROGRAM_NAMES: cpamm
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

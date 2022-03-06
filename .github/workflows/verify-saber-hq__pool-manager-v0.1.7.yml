@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.1.7
   PROGRAM_SLUG: saber-hq__pool-manager-v0.1.7
   PROGRAM_TARBALL_URL: https://github.com/saber-hq/pool-manager/archive/refs/tags/v0.1.7.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"pools":"SMANK4F5osjfVpKFH5LPzE6HPpbzSPu5iHPBhuor5xU"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"pools":"SMANK4F5osjfVpKFH5LPzE6HPpbzSPu5iHPBhuor5xU"}'
   PROGRAM_NAMES: pools
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

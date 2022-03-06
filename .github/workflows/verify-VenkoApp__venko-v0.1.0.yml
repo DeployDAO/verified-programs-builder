@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.1.0
   PROGRAM_SLUG: VenkoApp__venko-v0.1.0
   PROGRAM_TARBALL_URL: https://github.com/VenkoApp/venko/archive/refs/tags/v0.1.0.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"venko":"AnatoLyYrd5iaAe36Lvq2oS4nuVDnRAb3KBVCARt4XiZ"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"venko":"AnatoLyYrd5iaAe36Lvq2oS4nuVDnRAb3KBVCARt4XiZ"}'
   PROGRAM_NAMES: venko
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

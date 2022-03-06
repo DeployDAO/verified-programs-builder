@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.2.5
   PROGRAM_SLUG: saber-hq__snapshots-v0.2.5
   PROGRAM_TARBALL_URL: https://github.com/saber-hq/snapshots/archive/refs/tags/v0.2.5.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"snapshots":"StakeSSzfxn391k3LvdKbZP5WVwWd6AsY1DNiXHjQfK"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"snapshots":"StakeSSzfxn391k3LvdKbZP5WVwWd6AsY1DNiXHjQfK"}'
   PROGRAM_NAMES: snapshots
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

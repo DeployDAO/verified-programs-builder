@@ -9,7 +9,7 @@ env:
   PROGRAM_GIT_TAG: v0.1.8
   PROGRAM_SLUG: arrowprotocol__arrow-v0.1.8
   PROGRAM_TARBALL_URL: https://github.com/arrowprotocol/arrow/archive/refs/tags/v0.1.8.tar.gz
-  MAINNET_PROGRAM_ADDRESSES: '{"arrow_sunny":"ARoWLTBWoWrKMvxEiaE2EH9DrWyV7mLpKywGDWxBGeq9"}'
+  MAINNET_PROGRAM_ADDRESSES_JSON: '{"arrow_sunny":"ARoWLTBWoWrKMvxEiaE2EH9DrWyV7mLpKywGDWxBGeq9"}'
   PROGRAM_NAMES: arrow_sunny
 jobs:
   release-binaries:
@@ -31,7 +31,7 @@ jobs:
       - name: Extract addresses
         run: |
           cd $(cat dirname)
-          echo '${{ env.MANIFEST_PROGRAM_ADDRESSES_JSON }}' > addresses.json
+          echo '${{ env.MAINNET_PROGRAM_ADDRESSES_JSON }}' > addresses.json
       - name: Login to Anchor
         run: nix shell ./#anchor-${{ env.ANCHOR_CLI_VERSION }} --command anchor login
           ${{ secrets.ANCHOR_AUTH_TOKEN }}

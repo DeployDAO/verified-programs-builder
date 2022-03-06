@@ -10,7 +10,7 @@ env:
   PROGRAM_SLUG: TribecaHQ__tribeca-v0.5.4
   PROGRAM_TARBALL_URL: https://github.com/TribecaHQ/tribeca/archive/refs/tags/v0.5.4.tar.gz
   MAINNET_PROGRAM_ADDRESSES: '{"govern":"Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw","locked_voter":"LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw"}'
-  PROGRAM_NAMES: govern	locked_voter
+  PROGRAM_NAMES: govern locked_voter
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

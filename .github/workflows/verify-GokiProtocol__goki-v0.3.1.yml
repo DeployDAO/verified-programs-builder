@@ -10,7 +10,7 @@ env:
   PROGRAM_SLUG: GokiProtocol__goki-v0.3.1
   PROGRAM_TARBALL_URL: https://github.com/GokiProtocol/goki/archive/refs/tags/v0.3.1.tar.gz
   MAINNET_PROGRAM_ADDRESSES: '{"smart_wallet":"GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH","token_signer":"NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"}'
-  PROGRAM_NAMES: smart_wallet	token_signer
+  PROGRAM_NAMES: smart_wallet token_signer
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

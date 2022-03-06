@@ -10,7 +10,7 @@ env:
   PROGRAM_SLUG: cashioapp__cashio-v0.1.4
   PROGRAM_TARBALL_URL: https://github.com/cashioapp/cashio/archive/refs/tags/v0.1.4.tar.gz
   MAINNET_PROGRAM_ADDRESSES: '{"brrr":"BRRRot6ig147TBU6EGp7TMesmQrwu729CbG6qu2ZUHWm","bankman":"BANKhiCgEYd7QmcWwPLkqvTuuLN6qEwXDZgTe6HEbwv1"}'
-  PROGRAM_NAMES: brrr	bankman
+  PROGRAM_NAMES: brrr bankman
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

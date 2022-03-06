@@ -10,7 +10,7 @@ env:
   PROGRAM_SLUG: CrateProtocol__crate-v0.4.0
   PROGRAM_TARBALL_URL: https://github.com/CrateProtocol/crate/archive/refs/tags/v0.4.0.tar.gz
   MAINNET_PROGRAM_ADDRESSES: '{"crate_token":"CRATwLpu6YZEeiVq9ajjxs61wPQ9f29s1UoQR9siJCRs","crate_redeem_in_kind":"1NKyU3qShZC3oJgvCCftAHDi5TFxcJwfyUz2FeZsiwE"}'
-  PROGRAM_NAMES: crate_token	crate_redeem_in_kind
+  PROGRAM_NAMES: crate_token crate_redeem_in_kind
 jobs:
   release-binaries:
     runs-on: ubuntu-latest

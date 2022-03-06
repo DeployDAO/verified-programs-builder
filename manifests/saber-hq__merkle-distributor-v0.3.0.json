@@ -1,0 +1,28 @@
+{
+  "anchor_version": "0.20.1",
+  "solana_version": "1.9.0",
+  "registry": {
+    "url": "https://anchor.projectserum.com"
+  },
+  "provider": {
+    "cluster": "localnet",
+    "wallet": "./tests/test-key.json"
+  },
+  "programs": {
+    "mainnet": {
+      "merkle_distributor": "MRKGLMizK9XSTaD1d1jbVkdHZbQVCSnPpYiTw9aKQv8"
+    },
+    "devnet": {
+      "merkle_distributor": "MRKGLMizK9XSTaD1d1jbVkdHZbQVCSnPpYiTw9aKQv8"
+    },
+    "testnet": {
+      "merkle_distributor": "MRKGLMizK9XSTaD1d1jbVkdHZbQVCSnPpYiTw9aKQv8"
+    },
+    "localnet": {
+      "merkle_distributor": "MRKGLMizK9XSTaD1d1jbVkdHZbQVCSnPpYiTw9aKQv8"
+    }
+  },
+  "scripts": {
+    "test": "yarn mocha"
+  }
+}

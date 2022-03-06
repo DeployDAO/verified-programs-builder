@@ -1,0 +1,32 @@
+{
+  "anchor_version": "0.19.0",
+  "solana_version": "1.9.1",
+  "registry": {
+    "url": "https://anchor.projectserum.com"
+  },
+  "provider": {
+    "cluster": "localnet",
+    "wallet": "tests/fixture-key.json"
+  },
+  "scripts": {
+    "test": "yarn mocha"
+  },
+  "programs": {
+    "mainnet": {
+      "crate_token": "CRATwLpu6YZEeiVq9ajjxs61wPQ9f29s1UoQR9siJCRs",
+      "crate_redeem_in_kind": "1NKyU3qShZC3oJgvCCftAHDi5TFxcJwfyUz2FeZsiwE"
+    },
+    "devnet": {
+      "crate_token": "CRATwLpu6YZEeiVq9ajjxs61wPQ9f29s1UoQR9siJCRs",
+      "crate_redeem_in_kind": "1NKyU3qShZC3oJgvCCftAHDi5TFxcJwfyUz2FeZsiwE"
+    },
+    "testnet": {
+      "crate_token": "CRATwLpu6YZEeiVq9ajjxs61wPQ9f29s1UoQR9siJCRs",
+      "crate_redeem_in_kind": "1NKyU3qShZC3oJgvCCftAHDi5TFxcJwfyUz2FeZsiwE"
+    },
+    "localnet": {
+      "crate_token": "CRATwLpu6YZEeiVq9ajjxs61wPQ9f29s1UoQR9siJCRs",
+      "crate_redeem_in_kind": "1NKyU3qShZC3oJgvCCftAHDi5TFxcJwfyUz2FeZsiwE"
+    }
+  }
+}

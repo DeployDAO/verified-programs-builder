@@ -1,0 +1,35 @@
+{
+  "anchor_version": "0.22.0",
+  "solana_version": "1.8.16",
+  "features": {
+    "seeds": true
+  },
+  "registry": {
+    "url": "https://anchor.projectserum.com"
+  },
+  "provider": {
+    "cluster": "localnet",
+    "wallet": "./tests/test-key.json"
+  },
+  "scripts": {
+    "test": "yarn mocha"
+  },
+  "programs": {
+    "mainnet": {
+      "smart_wallet": "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH",
+      "token_signer": "NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"
+    },
+    "devnet": {
+      "smart_wallet": "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH",
+      "token_signer": "NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"
+    },
+    "testnet": {
+      "smart_wallet": "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH",
+      "token_signer": "NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"
+    },
+    "localnet": {
+      "smart_wallet": "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH",
+      "token_signer": "NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"
+    }
+  }
+}

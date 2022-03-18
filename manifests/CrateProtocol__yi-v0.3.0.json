@@ -1,0 +1,28 @@
+{
+  "anchor_version": "0.22.0",
+  "solana_version": "1.8.14",
+  "features": {
+    "seeds": true
+  },
+  "scripts": {
+    "test": "yarn mocha"
+  },
+  "provider": {
+    "cluster": "localnet",
+    "wallet": "./tests/test-key.json"
+  },
+  "programs": {
+    "localnet": {
+      "yi": "YiiTopEnX2vyoWdXuG45ovDFYZars4XZ4w6td6RVTFm"
+    },
+    "devnet": {
+      "yi": "YiiTopEnX2vyoWdXuG45ovDFYZars4XZ4w6td6RVTFm"
+    },
+    "testnet": {
+      "yi": "YiiTopEnX2vyoWdXuG45ovDFYZars4XZ4w6td6RVTFm"
+    },
+    "mainnet": {
+      "yi": "YiiTopEnX2vyoWdXuG45ovDFYZars4XZ4w6td6RVTFm"
+    }
+  }
+}

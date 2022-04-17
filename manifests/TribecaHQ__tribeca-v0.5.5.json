@@ -1,0 +1,43 @@
+{
+  "anchor_version": "0.22.1",
+  "solana_version": "1.9.9",
+  "scripts": {
+    "test": "yarn mocha -b"
+  },
+  "provider": {
+    "cluster": "localnet",
+    "wallet": "./tests/test-key.json"
+  },
+  "test": {
+    "genesis": [
+      {
+        "address": "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH",
+        "program": "./artifacts/deploy/smart_wallet.so"
+      }
+    ]
+  },
+  "programs": {
+    "localnet": {
+      "govern": "Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw",
+      "locked_voter": "LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw",
+      "simple_voter": "Tok6iuA69RLN1QrpXgQKnDgE1YYbLzQsZGSoz75fQdz",
+      "whitelist_tester": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+    },
+    "devnet": {
+      "govern": "Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw",
+      "locked_voter": "LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw",
+      "simple_voter": "Tok6iuA69RLN1QrpXgQKnDgE1YYbLzQsZGSoz75fQdz",
+      "whitelist_tester": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+    },
+    "testnet": {
+      "govern": "Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw",
+      "locked_voter": "LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw",
+      "simple_voter": "Tok6iuA69RLN1QrpXgQKnDgE1YYbLzQsZGSoz75fQdz",
+      "whitelist_tester": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+    },
+    "mainnet": {
+      "govern": "Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw",
+      "locked_voter": "LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw"
+    }
+  }
+}

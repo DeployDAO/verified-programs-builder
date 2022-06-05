@@ -1,0 +1,56 @@
+{
+  "anchor_version": "0.24.2",
+  "solana_version": "1.9.12",
+  "features": {
+    "seeds": true
+  },
+  "scripts": {
+    "test": "yarn mocha"
+  },
+  "provider": {
+    "cluster": "localnet",
+    "wallet": "./tests/test-key.json"
+  },
+  "test": {
+    "genesis": [
+      {
+        "address": "QMWoBmAyJLAsA1Lh9ugMTw2gciTihncciphzdNzdZYV",
+        "program": "./artifacts/deploy/quarry_mint_wrapper.so"
+      },
+      {
+        "address": "QMNeHCGYnLVDn1icRAfQZpjPLBNkfGbSKRB83G5d8KB",
+        "program": "./artifacts/deploy/quarry_mine.so"
+      },
+      {
+        "address": "QoP6NfrQbaGnccXQrMLUkog2tQZ4C1RFgJcwDnT8Kmz",
+        "program": "./artifacts/deploy/quarry_operator.so"
+      },
+      {
+        "address": "Govz1VyoyLD5BL6CSCxUJLVLsQHRwjfFj1prNsdNg5Jw",
+        "program": "./artifacts/deploy/govern.so"
+      },
+      {
+        "address": "LocktDzaV1W2Bm9DeZeiyz4J9zs4fRqNiYqQyracRXw",
+        "program": "./artifacts/deploy/locked_voter.so"
+      },
+      {
+        "address": "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH",
+        "program": "./artifacts/deploy/smart_wallet.so"
+      }
+    ]
+  },
+  "programs": {
+    "localnet": {
+      "gauge": "GaugesLJrnVjNNWLReiw3Q7xQhycSBRgeHGTMDUaX231"
+    },
+    "devnet": {
+      "gauge": "GaugesLJrnVjNNWLReiw3Q7xQhycSBRgeHGTMDUaX231"
+    },
+    "testnet": {
+      "gauge": "GaugesLJrnVjNNWLReiw3Q7xQhycSBRgeHGTMDUaX231"
+    },
+    "mainnet": {
+      "gauge": "GaugesLJrnVjNNWLReiw3Q7xQhycSBRgeHGTMDUaX231"
+    }
+  }
+}

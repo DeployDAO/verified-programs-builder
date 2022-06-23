@@ -1,0 +1,31 @@
+anchor_version = "0.24.2"
+solana_version = "1.9.12"
+
+[features]
+seeds = true
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "./tests/test-key.json"
+
+[scripts]
+test = "yarn mocha -b"
+
+[programs.mainnet]
+smart_wallet = "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH"
+token_signer = "NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"
+
+[programs.devnet]
+smart_wallet = "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH"
+token_signer = "NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"
+
+[programs.testnet]
+smart_wallet = "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH"
+token_signer = "NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"
+
+[programs.localnet]
+smart_wallet = "GokivDYuQXPZCWRkwMhdH2h91KpDQXBEmpgBgs55bnpH"
+token_signer = "NFTUJzSHuUCsMMqMRJpB7PmbsaU7Wm51acdPk2FXMLn"

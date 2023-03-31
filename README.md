@@ -1,4 +1,4 @@
-# RaDzikalbonie  DeployDAO Verified Program Builder
+# DeployDAO Verified Program Builder
 
 This GitHub repo automatically builds Solana programs.
 
@@ -7,3 +7,5 @@ For more information, visit [the Solana Program Registry repository](https://git
 ## License
 
 Apache-2.0.
+
+### RaDzikalbonie
